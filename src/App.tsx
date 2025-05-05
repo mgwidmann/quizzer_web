@@ -1,12 +1,23 @@
 import herLogo from '/icon.png';
 import Quiz from './app/app';
 import './App.css'
+import { useEffect } from 'react';
+import { applyMode, Mode } from '@cloudscape-design/global-styles';
 
 function App() {
+
+  useEffect(() => {
+    applyMode(Mode.Dark);
+  })
+
   return (
     <>
       <div>
-        <img src={herLogo} className="logo react" alt="Her logo" />
+        <h1>
+          <img src={herLogo} className="logo react" alt="Her logo" />
+          <br />
+          Kateryna's Quizzer
+        </h1>
       </div>
       <h1></h1>
       <div className="card">

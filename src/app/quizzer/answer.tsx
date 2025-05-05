@@ -12,7 +12,7 @@ export default function Answer(props: { answer: Answer, label: string, selected?
     }
   }
   return (
-    <Box key={props.label} className={className}>
+    <Box key={props.label} className={className} textAlign="left">
       <input id={props.label} name="question-answer" type="radio" onClick={() => props.submitAnswer(props.answer)} />
       <label htmlFor={props.label} style={{ cursor: 'pointer' }}>
         <span>{props.label}:</span>&nbsp;<span>{props.answer.text}</span>

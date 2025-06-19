@@ -18,6 +18,7 @@ function App() {
           <br />
           Kateryna's Quizzer
         </h1>
+        <h3>😍 The most beautiful girl in the world 😍</h3>
       </div>
       <h1></h1>
       <div className="card">

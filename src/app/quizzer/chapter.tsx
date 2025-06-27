@@ -12,6 +12,9 @@ export function Chapter(props: { chapter: ChapterType, editMode: boolean; setEdi
     props.chapter.sections.push(section);
     props.setChapter(props.chapter);
     setSectionIndex(props.chapter.sections.length - 1);
+    setTimeout(() => {
+      setKey(key + 1);
+    })
   }
 
   const removeCurrentSection = () => {

@@ -71,7 +71,11 @@ export default function Section(props: { editMode: boolean, addSection: (section
         visible={showSectionForm}
         header="Section"
       >
-        <SectionForm section={props.editMode ? props.section : undefined} saveSection={(section: Section) => { props.addSection(section); setShowSectionForm(false); }} cancel={() => setShowSectionForm(false)} />
+        <SectionForm 
+          section={props.editMode ? props.section : undefined} 
+          saveSection={(section: Section) => { props.addSection(section); setShowSectionForm(false); }} 
+          cancel={() => setShowSectionForm(false)} 
+        />
       </Modal>
     </ContentLayout>
   )

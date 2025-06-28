@@ -5,7 +5,7 @@ import {
   ContentLayout,
 } from '@cloudscape-design/components';
 import Quizzer from './quizzer';
-import { loadLocalStorageData, saveLocalStorageData } from './data/localStorage';
+import { eraseLocalStorageData, loadLocalStorageData, saveLocalStorageData } from './data/localStorage';
 
 
 export default function Quiz() {
@@ -23,12 +23,23 @@ export default function Quiz() {
     document.body.removeChild(a); // Clean up
   }
 
+  const reset = () => {
+    const erase = confirm("Are you sure you want to erase any changes you have made?!? This action is not reversible!");
+    if (erase) {
+      // ensure an exported copy
+      exportData();
+      eraseLocalStorageData();
+      alert("Data has been reset, you must refresh the page to see the changes.");
+    }
+  }
+
   return (
     <AppLayout
       navigationHide={true}
       toolsHide={true}
       content={
         <ContentLayout>
+          <Button onClick={reset}>Reset Data</Button>
           <Button onClick={exportData}>Export</Button>
           <Quizzer quiz={data} editMode={editMode} setEditMode={setEditMode} setQuiz={(quiz) => { saveLocalStorageData(quiz); setData(quiz) }} />
         </ContentLayout>
